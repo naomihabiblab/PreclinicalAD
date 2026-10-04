@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Restricted/local study data
+**/Data/
+**/data/
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.parquet
+*.feather
+*.sav
+*.rds
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.mat
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated models and serialized data
+**/models/
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+
+# Generated outputs
+**/logs/
+**/figures/
+**/final_figures/
+**/sex_figures/
+**/APOE_figures/
+*.log
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.pdf
+*.eps
+*.ps
+*.tif
+*.tiff
+*.bmp
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
