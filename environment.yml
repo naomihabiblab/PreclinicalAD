@@ -1,0 +1,45 @@
+# Combined from the lab conda environments BCG (Python 3.12), stats (Python 3.8),
+# and tabpfn2 (Python 3.10). A single environment has one Python, so this file
+# uses Python 3.10. Where the same package was installed at more than one
+# version, the newer version is pinned.
+name: preclinical-ad
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+  - pip
+  - numpy=2.2.6
+  - pandas=2.2.3
+  - scipy=1.15.2
+  - scikit-learn=1.6.1
+  - statsmodels=0.14.4
+  - matplotlib=3.10.3
+  - seaborn=0.13.2
+  - openpyxl=3.1.5
+  - pillow=11.2.1
+  - jupyter=1.0.0
+  - ipykernel=6.29.5
+  - optuna=4.5.0
+  - catboost=1.2.8
+  - lightgbm=4.6.0
+  - xgboost=3.0.2
+  - hyperopt=0.2.7
+  - pingouin=0.5.5
+  - umap-learn=0.5.9.post2
+  - scanpy=1.11.1
+  - python-igraph=0.11.5
+  - leidenalg=0.10.2
+  - pydeseq2=0.4.10
+  - pgmpy=0.1.26
+  - opt_einsum=3.4.0
+  - mpld3=0.5.9
+  - joblib=1.5.0
+  - tqdm=4.67.1
+  - pip:
+      - tabpfn==2.0.9
+      - tabpfn-extensions==0.2.0
+      - alibi==0.9.6
+      - shap==0.49.1
+      - shapiq==1.3.2
+      - torch==2.7.0

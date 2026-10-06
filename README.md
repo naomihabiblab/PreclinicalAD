@@ -1,6 +1,10 @@
-# Preclinical AD
+# Concurrent cognitive, behavioral and systemic physiological features mark preclinical Alzheimer's disease
 
-Analysis code and notebooks for studying clinical, cognitive, behavioral, genetic, and blood-biomarker features associated with early and preclinical Alzheimer's disease. The repository focuses on plasma biomarkers—particularly p-tau217, GFAP, and NfL—and includes statistical analyses, cohort summaries, predictive modeling, and model explainability workflows.
+This repository contains the analysis code for Tsoran & Rom et al., *Concurrent cognitive, behavioral and systemic physiological features mark preclinical Alzheimer's disease*.
+
+## Abstract
+
+Alzheimer's disease (AD) pathology accumulates years before overt cognitive impairment, yet its multidomain phenotype remains poorly defined. To limit confounding by uncontrolled comorbidities, we assembled a cohort of 644 older adults self-reporting intact cognition, free of systemic or neurological diseases and managed medically for risk factors. Plasma p-tau217 was elevated in 20%, and 93 of these were cognitively unimpaired. This biomarker-defined, risk factor-controlled preclinical AD subgroup showed subtle, concurrent cognitive and behavioral differences, accompanied by modest differences in physiological measures within clinical reference ranges, and alongside higher biomarkers of astrogliosis (GFAP) and neurodegeneration (NfL). Reported modifiable risk factor histories were not associated with p-tau217 when effectively managed. A proof-of-concept AI classifier integrating routine multidomain clinical data improved identification of p-tau217-high individuals relative to cognitive screening alone. These findings indicate preclinical AD is not phenotypically silent at the group level and support multidomain-based screening for biomarker testing and early detection.
 
 ## Repository structure
 
@@ -8,25 +12,16 @@ Analysis code and notebooks for studying clinical, cognitive, behavioral, geneti
 - `clinical_data/` — cohort summaries, cognitive and behavioral analyses, APOE analyses, and reusable statistical-analysis scripts for biomarker/trait associations.
 - `biomarker_prediction/` — preprocessing, model training, hyperparameter optimization, bootstrap evaluation, ensemble methods, visualization, and explainability for p-tau217 classification.
 
-## Data availability and privacy
-
-The participant-level clinical datasets used by these analyses are **not included** in this repository. Several notebooks and scripts expect files such as `fightAD_general_data_table.xlsx` or preprocessed CSV files in a local `clinical_data/Data/` directory. These inputs may contain sensitive research data and must be obtained through the study's approved data-access process.
-
-Do not commit participant-level data, model artifacts containing participant data, credentials, or other restricted outputs. The included `.gitignore` excludes the common local data and generated-artifact locations.
-
-The notebooks are distributed without saved outputs or embedded figures. Run them only with approved local data, and review any regenerated outputs under the study's data-sharing and publication policies before redistribution.
-
 ## Environment
 
-The project uses Python and Jupyter notebooks. Dependencies used across the analyses include:
+The analyses were run in three lab conda environments, `BCG`, `stats`, and `tabpfn2`. Those environments use Python 3.12, 3.8, and 3.10, so they cannot be installed as one interpreter. `environment.yml` combines their packages in a single Python 3.10 environment. When a package version differed across the lab environments, the newer version is pinned.
 
-- `numpy`, `pandas`, `scipy`, and `statsmodels`
-- `matplotlib` and `seaborn`
-- `scikit-learn`, `catboost`, `optuna`, and `torch`
-- `tabpfn`
-- optional explainability packages used by the scripts in `biomarker_prediction/explainability/`, including SHAP-related tools
+The lab `tabpfn2` environment used PyTorch `2.7.0+cu118`. This file installs PyTorch `2.7.0`. Explainability imports `tabpfn_extensions`, which was an editable local install at version 0.1.0; the environment file installs the earliest published release, `tabpfn-extensions==0.2.0`.
 
-No pinned environment file is currently included, so package versions should be recorded before attempting exact reproduction.
+```bash
+conda env create -f environment.yml
+conda activate preclinical-ad
+```
 
 ## Running the analyses
 
@@ -48,12 +43,6 @@ python biomarker_prediction/tau_classification.py --help
 
 The provided shell scripts contain SLURM settings and lab-specific paths and should be adapted before submission on another cluster.
 
-## Reproducibility notes
+## Reproducibility
 
-- Random seeds and analysis thresholds are defined in the relevant settings/configuration modules, including `biomarker_prediction/config.py` and `clinical_data/clinical_data_analysis/statistical_analysis/settings.py`.
-- Notebook outputs reflect the environment and data available when each notebook was last executed.
-- Generated figures, logs, serialized models, and derived data should remain outside version control unless they have been explicitly approved for release.
-
-## Intended use
-
-This repository contains research code. It is not a clinical diagnostic tool and should not be used to guide patient care.
+Random seeds and analysis thresholds are defined in `biomarker_prediction/config.py` and `clinical_data/clinical_data_analysis/statistical_analysis/settings.py`.
