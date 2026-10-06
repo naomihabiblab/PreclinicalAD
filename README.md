@@ -6,7 +6,7 @@ Analysis code and notebooks for studying clinical, cognitive, behavioral, geneti
 
 - `biomarkers/` — exploratory analyses of p-tau217, GFAP, NfL, and APOE, including biomarker thresholds and feature distributions.
 - `clinical_data/` — cohort summaries, cognitive and behavioral analyses, APOE analyses, and reusable statistical-analysis scripts for biomarker/trait associations.
-- `modeling/biomarker_prediction/` — preprocessing, model training, hyperparameter optimization, bootstrap evaluation, ensemble methods, visualization, and explainability for p-tau217 classification.
+- `biomarker_prediction/` — preprocessing, model training, hyperparameter optimization, bootstrap evaluation, ensemble methods, visualization, and explainability for p-tau217 classification.
 
 ## Data availability and privacy
 
@@ -24,7 +24,7 @@ The project uses Python and Jupyter notebooks. Dependencies used across the anal
 - `matplotlib` and `seaborn`
 - `scikit-learn`, `catboost`, `optuna`, and `torch`
 - `tabpfn`
-- optional explainability packages used by the scripts in `modeling/biomarker_prediction/explainability/`, including SHAP-related tools
+- optional explainability packages used by the scripts in `biomarker_prediction/explainability/`, including SHAP-related tools
 
 No pinned environment file is currently included, so package versions should be recorded before attempting exact reproduction.
 
@@ -35,7 +35,7 @@ Many notebooks currently reference lab-specific absolute paths. Before running t
 The main biomarker-classification entry point is:
 
 ```bash
-python modeling/biomarker_prediction/tau_classification.py \
+python biomarker_prediction/tau_classification.py \
   --data_path /path/to/approved/model_preprocessed_data.csv \
   --output_dir /path/to/output
 ```
@@ -43,14 +43,14 @@ python modeling/biomarker_prediction/tau_classification.py \
 Use `--help` to view the available filtering, GPU, TabPFN, and bootstrap options:
 
 ```bash
-python modeling/biomarker_prediction/tau_classification.py --help
+python biomarker_prediction/tau_classification.py --help
 ```
 
 The provided shell scripts contain SLURM settings and lab-specific paths and should be adapted before submission on another cluster.
 
 ## Reproducibility notes
 
-- Random seeds and analysis thresholds are defined in the relevant settings/configuration modules, including `modeling/biomarker_prediction/config.py` and `clinical_data/clinical_data_analysis/statistical_analysis/settings.py`.
+- Random seeds and analysis thresholds are defined in the relevant settings/configuration modules, including `biomarker_prediction/config.py` and `clinical_data/clinical_data_analysis/statistical_analysis/settings.py`.
 - Notebook outputs reflect the environment and data available when each notebook was last executed.
 - Generated figures, logs, serialized models, and derived data should remain outside version control unless they have been explicitly approved for release.
 
