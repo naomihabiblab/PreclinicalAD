@@ -2,6 +2,8 @@
 
 This repository contains the analysis code for Tsoran & Rom et al., *Concurrent cognitive, behavioral and systemic physiological features mark preclinical Alzheimer's disease*.
 
+![Figure 1a. Study design and inclusion criteria.](docs/figure1a.png)
+
 ## Abstract
 
 Alzheimer's disease (AD) pathology accumulates years before overt cognitive impairment, yet its multidomain phenotype remains poorly defined. To limit confounding by uncontrolled comorbidities, we assembled a cohort of 644 older adults self-reporting intact cognition, free of systemic or neurological diseases and managed medically for risk factors. Plasma p-tau217 was elevated in 20%, and 93 of these were cognitively unimpaired. This biomarker-defined, risk factor-controlled preclinical AD subgroup showed subtle, concurrent cognitive and behavioral differences, accompanied by modest differences in physiological measures within clinical reference ranges, and alongside higher biomarkers of astrogliosis (GFAP) and neurodegeneration (NfL). Reported modifiable risk factor histories were not associated with p-tau217 when effectively managed. A proof-of-concept AI classifier integrating routine multidomain clinical data improved identification of p-tau217-high individuals relative to cognitive screening alone. These findings indicate preclinical AD is not phenotypically silent at the group level and support multidomain-based screening for biomarker testing and early detection.

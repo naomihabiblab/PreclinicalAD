@@ -49,6 +49,7 @@ env/
 **/APOE_figures/
 *.log
 *.png
+!docs/figure1a.png
 *.jpg
 *.jpeg
 *.gif
